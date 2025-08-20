@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles matching the prototype */
+:root {
+  --farm-green: #10b981;
+  --farm-dark: #059669;
+  --farm-light: #d1fae5;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f9fafb;
+}
+
+/* Custom component styles */
+.nav-item {
+  @apply w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-200;
+}
+
+.nav-item-inactive {
+  @apply text-gray-600 hover:bg-farm-light hover:text-farm-dark;
+}
+
+.nav-item-active {
+  @apply bg-farm-light text-farm-dark font-medium;
+}
+
+.nav-item.active {
+  @apply bg-farm-light;
+}
+
+.card {
+  @apply bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow p-6;
+}
+
+.btn-primary {
+  @apply bg-farm-green text-white px-6 py-2 rounded-lg hover:bg-farm-dark transition duration-200;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition duration-200;
+}
+
+.status-optimal {
+  @apply px-2 py-1 bg-farm-light text-farm-green text-xs font-medium rounded-full;
+}
+
+.status-warning {
+  @apply px-2 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full;
+}
+
+.status-good {
+  @apply px-2 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full;
+}
+
+/* Toggle switch styles */
+.toggle-switch {
+  @apply w-11 h-6 bg-gray-200 rounded-full relative cursor-pointer;
+  transition: background-color 0.2s;
+}
+
+.toggle-switch:focus {
+  @apply outline-none ring-4 ring-farm-green ring-opacity-20;
+}
+
+.toggle-switch::after {
+  content: '';
+  @apply absolute top-0.5 left-0.5 bg-white border border-gray-300 rounded-full h-5 w-5;
+  transition: transform 0.2s;
+}
+
+.toggle-switch.checked {
+  @apply bg-farm-green;
+}
+
+.toggle-switch.checked::after {
+  transform: translateX(1.25rem);
+  @apply border-white;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply animate-spin rounded-full h-8 w-8 border-b-2 border-farm-green;
+}
+
+/* Icon overflow prevention */
+svg {
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/* Ensure Heroicons don't overflow */
+.heroicon {
+  flex-shrink: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Responsive sidebar */
+@media (max-width: 1024px) {
+  .sidebar-mobile {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar-mobile.open {
+    transform: translateX(0);
+  }
+}

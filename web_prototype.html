@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushroom Farm IoT Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'farm-green': '#16a34a',
+                        'farm-light': '#dcfce7',
+                        'farm-dark': '#166534'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    
+    <!-- LOGIN PAGE -->
+    <section id="login-page" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100">
+        <div class="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md mx-4">
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 bg-farm-green rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-seedling text-white text-2xl"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-800 mb-2">Mushroom Farm IoT</h1>
+                <p class="text-gray-600">Monitor and control your farm remotely</p>
+            </div>
+            
+            <form class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-farm-green focus:border-transparent" placeholder="farmer@example.com">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-farm-green focus:border-transparent" placeholder="••••••••">
+                </div>
+                
+                <button type="button" onclick="showPage('overview')" class="w-full bg-farm-green text-white py-3 rounded-lg hover:bg-farm-dark transition duration-200 font-medium">
+                    Sign In
+                </button>
+            </form>
+            
+            <div class="mt-6 text-center">
+                <a href="#" class="text-sm text-farm-green hover:underline">Forgot your password?</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN DASHBOARD LAYOUT (Hidden by default) -->
+    <div id="dashboard-layout" class="hidden">
+        
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="fixed left-0 top-0 h-full w-64 bg-white shadow-lg transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-30">
+            <div class="flex items-center justify-between p-6 border-b">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-farm-green rounded-lg flex items-center justify-center">
+                        <i class="fas fa-seedling text-white"></i>
+                    </div>
+                    <span class="font-bold text-gray-800">Farm IoT</span>
+                </div>
+                <button id="sidebar-close" class="lg:hidden">
+                    <i class="fas fa-times text-gray-500"></i>
+                </button>
+            </div>
+            
+            <nav class="p-4">
+                <ul class="space-y-2">
+                    <li>
+                        <button onclick="showPage('overview')" class="nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left hover:bg-farm-light transition">
+                            <i class="fas fa-home text-farm-green"></i>
+                            <span>Farm Overview</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="showPage('analytics')" class="nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left hover:bg-farm-light transition">
+                            <i class="fas fa-chart-line text-farm-green"></i>
+                            <span>Analytics</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="showPage('settings')" class="nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left hover:bg-farm-light transition">
+                            <i class="fas fa-cog text-farm-green"></i>
+                            <span>Settings</span>
+                        </button>
+                    </li>
+                    <li class="pt-4 border-t">
+                        <button onclick="showPage('login')" class="nav-item w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left hover:bg-red-50 transition text-red-600">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="lg:ml-64">
+            
+            <!-- HEADER -->
+            <header class="bg-white shadow-sm border-b px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <button id="sidebar-toggle" class="lg:hidden">
+                            <i class="fas fa-bars text-gray-600"></i>
+                        </button>
+                        <h1 class="text-2xl font-semibold text-gray-800" id="page-title">Farm Overview</h1>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="hidden sm:flex items-center space-x-2 text-sm text-gray-600">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Green Valley Farm</span>
+                        </div>
+                        <div class="w-10 h-10 bg-farm-green rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- FARM OVERVIEW PAGE -->
+            <section id="overview-page" class="p-6">
+                <div class="mb-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                        <div class="bg-white rounded-lg p-6 shadow-sm border">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Total Zones</p>
+                                    <p class="text-2xl font-bold text-gray-900">3</p>
+                                </div>
+                                <i class="fas fa-building text-farm-green text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg p-6 shadow-sm border">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Avg Temperature</p>
+                                    <p class="text-2xl font-bold text-gray-900">20°C</p>
+                                </div>
+                                <i class="fas fa-thermometer-half text-blue-500 text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg p-6 shadow-sm border">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Avg Humidity</p>
+                                    <p class="text-2xl font-bold text-gray-900">87%</p>
+                                </div>
+                                <i class="fas fa-tint text-blue-400 text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg p-6 shadow-sm border">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-600">Active Alerts</p>
+                                    <p class="text-2xl font-bold text-orange-600">1</p>
+                                </div>
+                                <i class="fas fa-exclamation-triangle text-orange-500 text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farm Zones Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                    
+                    <!-- Zone 1: Block A - Shiitake -->
+                    <div class="bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow cursor-pointer" onclick="showRoomDetails('Block A', 'Shiitake', '22°C', '85%', true, false, true)">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Block A</h3>
+                                    <p class="text-sm text-gray-600">Shiitake Mushrooms</p>
+                                </div>
+                                <div class="w-12 h-12 bg-farm-light rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-seedling text-farm-green text-xl"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600">Temperature</p>
+                                    <p class="text-xl font-bold text-gray-900">22°C</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600">Humidity</p>
+                                    <p class="text-xl font-bold text-gray-900">85%</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <span class="flex items-center space-x-1">
+                                        <div class="w-2 h-2 bg-farm-green rounded-full"></div>
+                                        <span class="text-xs text-gray-600">Light ON</span>
+                                    </span>
+                                    <span class="flex items-center space-x-1">
+                                        <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+                                        <span class="text-xs text-gray-600">Fan OFF</span>
+                                    </span>
+                                </div>
+                                <span class="px-2 py-1 bg-farm-light text-farm-green text-xs font-medium rounded-full">Optimal</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Zone 2: Block B - Oyster -->
+                    <div class="bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow cursor-pointer" onclick="showRoomDetails('Block B', 'Oyster', '20°C', '88%', false, true, true)">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Block B</h3>
+                                    <p class="text-sm text-gray-600">Oyster Mushrooms</p>
+                                </div>
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-leaf text-blue-600 text-xl"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600">Temperature</p>
+                                    <p class="text-xl font-bold text-gray-900">20°C</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600">Humidity</p>
+                                    <p class="text-xl font-bold text-gray-900">88%</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <span class="flex items-center space-x-1">
+                                        <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+                                        <span class="text-xs text-gray-600">Light OFF</span>
+                                    </span>
+                                    <span class="flex items-center space-x-1">
+                                        <div class="w-2 h-2 bg-farm-green rounded-full"></div>
+                                        <span class="text-xs text-gray-600">Fan ON</span>
+                                    </span>
+                                </div>
+                                <span class="px-2 py-1 bg-farm-light text-farm-green text-xs font-medium rounded-full">Good</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Zone 3: Block C - Enoki -->
+                    <div class="bg-white rounded-xl shadow-sm border hover:shadow-md transition-shadow cursor-pointer" onclick="showRoomDetails('Block C', 'Enoki', '18°C', '90%', true, true, false)">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">Block C</h3>
+                                    <p class="text-sm text-gray-600">Enoki Mushrooms</p>
+                                </div>
+                                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-cannabis text-purple-600 text-xl"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600">Temperature</p>
+                                    <p class="text-xl font-bold text-gray-900">18°C</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600">Humidity</p>
+                                    <p class="text-xl font-bold text-orange-600">90%</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <span class="flex items-center space-x-1">
+                                        <div class="w-2 h-2 bg-farm-green rounded-full"></div>
+                                        <span class="text-xs text-gray-600">Light ON</span>
+                                    </span>
+                                    <span class="flex items-center space-x-1">
+                                        <div class="w-2 h-2 bg-farm-green rounded-full"></div>
+                                        <span class="text-xs text-gray-600">Fan ON</span>
+                                    </span>
+                                </div>
+                                <span class="px-2 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">Warning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ROOM DETAILS PAGE -->
+            <section id="room-details-page" class="hidden p-6">
+                <div class="mb-6">
+                    <button onclick="showPage('overview')" class="flex items-center space-x-2 text-farm-green hover:text-farm-dark transition mb-4">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to Overview</span>
+                    </button>
+                    
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-900" id="room-name">Block A</h2>
+                            <p class="text-gray-600" id="room-type">Shiitake Mushrooms</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm text-gray-600">Current Status</p>
+                            <span id="room-status" class="px-3 py-1 bg-farm-light text-farm-green text-sm font-medium rounded-full">Optimal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Environmental Controls -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Environmental Data</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-600">Temperature</span>
+                                <span class="text-xl font-bold text-gray-900" id="room-temp">22°C</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-600">Humidity</span>
+                                <span class="text-xl font-bold text-gray-900" id="room-humidity">85%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-600">CO2 Level</span>
+                                <span class="text-lg font-semibold text-gray-900">450 ppm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Device Controls</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700">Lighting System</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="light-toggle" class="sr-only peer" checked>
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-farm-green/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-farm-green"></div>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700">Ventilation Fan</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="fan-toggle" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-farm-green/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-farm-green"></div>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700">Humidifier</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="humidifier-toggle" class="sr-only peer" checked>
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-farm-green/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-farm-green"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Placeholder -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Temperature Trend</h3>
+                        <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
+                            <div class="text-center text-gray-500">
+                                <i class="fas fa-chart-line text-4xl mb-2"></i>
+                                <p>Temperature chart will be displayed here</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Humidity Trend</h3>
+                        <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
+                            <div class="text-center text-gray-500">
+                                <i class="fas fa-chart-area text-4xl mb-2"></i>
+                                <p>Humidity chart will be displayed here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ANALYTICS PAGE -->
+            <section id="analytics-page" class="hidden p-6">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Analytics Dashboard</h2>
+                    <p class="text-gray-600">AI-powered insights and yield predictions</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Yield Prediction</h3>
+                        <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
+                            <div class="text-center text-gray-500">
+                                <i class="fas fa-brain text-4xl mb-2"></i>
+                                <p>AI yield predictions powered by Amazon Bedrock</p>
+                                <p class="text-sm mt-2">Coming soon...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Environmental Performance</h3>
+                        <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
+                            <div class="text-center text-gray-500">
+                                <i class="fas fa-chart-pie text-4xl mb-2"></i>
+                                <p>Performance analytics dashboard</p>
+                                <p class="text-sm mt-2">Integration pending...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm border p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Historical Trends</h3>
+                    <div class="h-96 bg-gray-50 rounded-lg flex items-center justify-center">
+                        <div class="text-center text-gray-500">
+                            <i class="fas fa-history text-4xl mb-2"></i>
+                            <p>Historical data visualization</p>
+                            <p class="text-sm mt-2">Chart components will be integrated here</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SETTINGS PAGE -->
+            <section id="settings-page" class="hidden p-6">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Farm Settings</h2>
+                    <p class="text-gray-600">Configure your farm zones and devices</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Add New Zone</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Zone Name</label>
+                                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-farm-green focus:border-transparent" placeholder="Block D">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Mushroom Type</label>
+                                <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-farm-green focus:border-transparent">
+                                    <option>Select mushroom type</option>
+                                    <option>Shiitake</option>
+                                    <option>Oyster</option>
+                                    <option>Enoki</option>
+                                    <option>Button</option>
+                                    <option>Reishi</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Devices</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="rounded text-farm-green focus:ring-farm-green">
+                                        <span class="ml-2 text-sm text-gray-700">Temperature Sensor</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="rounded text-farm-green focus:ring-farm-green">
+                                        <span class="ml-2 text-sm text-gray-700">Humidity Sensor</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="rounded text-farm-green focus:ring-farm-green">
+                                        <span class="ml-2 text-sm text-gray-700">LED Lights</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="rounded text-farm-green focus:ring-farm-green">
+                                        <span class="ml-2 text-sm text-gray-700">Ventilation Fan</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="rounded text-farm-green focus:ring-farm-green">
+                                        <span class="ml-2 text-sm text-gray-700">Humidifier</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full bg-farm-green text-white py-2 rounded-lg hover:bg-farm-dark transition duration-200">
+                                Add Zone
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Existing Zones</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 border rounded-lg">
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Block A</h4>
+                                    <p class="text-sm text-gray-600">Shiitake Mushrooms</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition">
+                                        Edit
+                                    </button>
+                                    <button class="px-3 py-1 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200 transition">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-4 border rounded-lg">
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Block B</h4>
+                                    <p class="text-sm text-gray-600">Oyster Mushrooms</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition">
+                                        Edit
+                                    </button>
+                                    <button class="px-3 py-1 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200 transition">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-4 border rounded-lg">
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Block C</h4>
+                                    <p class="text-sm text-gray-600">Enoki Mushrooms</p>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition">
+                                        Edit
+                                    </button>
+                                    <button class="px-3 py-1 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200 transition">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- General Settings -->
+                <div class="mt-6 bg-white rounded-xl shadow-sm border p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">General Settings</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Farm Name</label>
+                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-farm-green focus:border-transparent" value="Green Valley Farm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-farm-green focus:border-transparent" value="California, USA">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Alert Email</label>
+                            <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-farm-green focus:border-transparent" value="alerts@greenvaleyfarm.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Data Collection Interval</label>
+                            <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-farm-green focus:border-transparent">
+                                <option>Every 5 minutes</option>
+                                <option>Every 10 minutes</option>
+                                <option>Every 15 minutes</option>
+                                <option>Every 30 minutes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <button class="bg-farm-green text-white px-6 py-2 rounded-lg hover:bg-farm-dark transition duration-200">
+                            Save Settings
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Overlay for mobile sidebar -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden lg:hidden"></div>
+
+    <script>
+        // Navigation state management
+        let currentPage = 'login';
+        let currentRoomData = {};
+
+        // Show/hide pages based on navigation
+        function showPage(page) {
+            // Hide all pages first
+            document.getElementById('login-page').classList.add('hidden');
+            document.getElementById('dashboard-layout').classList.add('hidden');
+            document.getElementById('overview-page').classList.add('hidden');
+            document.getElementById('room-details-page').classList.add('hidden');
+            document.getElementById('analytics-page').classList.add('hidden');
+            document.getElementById('settings-page').classList.add('hidden');
+
+            // Update navigation active states
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('bg-farm-light');
+            });
+
+            // Show the requested page
+            if (page === 'login') {
+                document.getElementById('login-page').classList.remove('hidden');
+                currentPage = 'login';
+            } else {
+                document.getElementById('dashboard-layout').classList.remove('hidden');
+                currentPage = page;
+                
+                // Update page title
+                const titles = {
+                    'overview': 'Farm Overview',
+                    'analytics': 'Analytics Dashboard',
+                    'settings': 'Farm Settings',
+                    'room-details': 'Room Details'
+                };
+                document.getElementById('page-title').textContent = titles[page] || 'Dashboard';
+
+                // Show the specific dashboard page
+                if (page === 'overview') {
+                    document.getElementById('overview-page').classList.remove('hidden');
+                } else if (page === 'analytics') {
+                    document.getElementById('analytics-page').classList.remove('hidden');
+                } else if (page === 'settings') {
+                    document.getElementById('settings-page').classList.remove('hidden');
+                } else if (page === 'room-details') {
+                    document.getElementById('room-details-page').classList.remove('hidden');
+                }
+
+                // Highlight active nav item (except for room-details)
+                if (page !== 'room-details') {
+                    const activeNav = document.querySelector(`[onclick="showPage('${page}')"]`);
+                    if (activeNav) {
+                        activeNav.classList.add('bg-farm-light');
+                    }
+                }
+            }
+
+            // Close mobile sidebar when navigating
+            closeSidebar();
+        }
+
+        // Show room details with dynamic data
+        function showRoomDetails(name, type, temp, humidity, lightOn, fanOn, humidifierOn) {
+            currentRoomData = { name, type, temp, humidity, lightOn, fanOn, humidifierOn };
+            
+            // Update room details content
+            document.getElementById('room-name').textContent = name;
+            document.getElementById('room-type').textContent = type + ' Mushrooms';
+            document.getElementById('room-temp').textContent = temp;
+            document.getElementById('room-humidity').textContent = humidity;
+            
+            // Update device toggles
+            document.getElementById('light-toggle').checked = lightOn;
+            document.getElementById('fan-toggle').checked = fanOn;
+            document.getElementById('humidifier-toggle').checked = humidifierOn;
+            
+            // Update status based on conditions
+            let status = 'Optimal';
+            let statusClass = 'bg-farm-light text-farm-green';
+            
+            const tempValue = parseInt(temp);
+            const humidityValue = parseInt(humidity);
+            
+            if (humidityValue > 89 || tempValue < 19) {
+                status = 'Warning';
+                statusClass = 'bg-orange-100 text-orange-600';
+            } else if (humidityValue > 87 || tempValue > 23) {
+                status = 'Attention';
+                statusClass = 'bg-yellow-100 text-yellow-600';
+            }
+            
+            const statusElement = document.getElementById('room-status');
+            statusElement.textContent = status;
+            statusElement.className = `px-3 py-1 text-sm font-medium rounded-full ${statusClass}`;
+            
+            showPage('room-details');
+        }
+
+        // Sidebar toggle functionality
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
+        function closeSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        }
+
+        // Event listeners
+        document.getElementById('sidebar-toggle').addEventListener('click', toggleSidebar);
+        document.getElementById('sidebar-close').addEventListener('click', closeSidebar);
+        document.getElementById('sidebar-overlay').addEventListener('click', closeSidebar);
+
+        // Handle device toggle changes (for demo purposes)
+        document.getElementById('light-toggle').addEventListener('change', function() {
+            console.log('Light toggled:', this.checked);
+        });
+
+        document.getElementById('fan-toggle').addEventListener('change', function() {
+            console.log('Fan toggled:', this.checked);
+        });
+
+        document.getElementById('humidifier-toggle').addEventListener('change', function() {
+            console.log('Humidifier toggled:', this.checked);
+        });
+
+        // Handle form submissions (for demo purposes)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Prevent form submissions and show alerts
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Form submitted! (This is a demo - no backend connected)');
+                });
+            });
+
+            // Initialize on login page
+            showPage('login');
+        });
+
+        // Responsive behavior
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1024) {
+                // Desktop view - show sidebar, hide overlay
+                document.getElementById('sidebar').classList.remove('-translate-x-full');
+                document.getElementById('sidebar-overlay').classList.add('hidden');
+            } else {
+                // Mobile view - hide sidebar
+                document.getElementById('sidebar').classList.add('-translate-x-full');
+            }
+        });
+    </script>
+
+</body>
+</html>

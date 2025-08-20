@@ -1,0 +1,709 @@
+2025-08-15 15:33:23,743 - Farm-Green Valley Farm - INFO - Created device: Incubation Room A-temperature_sensor-1 (632512d0-a121-477b-ba63-7ad59bfb2533)
+2025-08-15 15:33:23,744 - Farm-Green Valley Farm - INFO - Created device: Incubation Room A-humidity_sensor-2 (03f58996-45e5-4ae0-a241-dd443638865a)
+2025-08-15 15:33:23,744 - Farm-Green Valley Farm - INFO - Created device: Incubation Room A-co2_sensor-3 (60b1141b-420e-498e-8301-58ecab083b99)
+2025-08-15 15:33:23,744 - Farm-Green Valley Farm - INFO - Created device: Incubation Room A-light_sensor-4 (c2502c7d-8308-4b15-a091-7dc21361052d)
+2025-08-15 15:33:23,745 - Farm-Green Valley Farm - INFO - Created device: Fruiting Room B-temperature_sensor-1 (8cfa08fa-8613-4538-9d47-e4b3523532d5)
+2025-08-15 15:33:23,745 - Farm-Green Valley Farm - INFO - Created device: Fruiting Room B-humidity_sensor-2 (7aaa5d2e-e82c-4e6a-a2e9-a5923e446b2f)
+2025-08-15 15:33:23,745 - Farm-Green Valley Farm - INFO - Created device: Fruiting Room B-co2_sensor-3 (707dc8ea-d39e-49d7-8109-ba3eb126770c)
+2025-08-15 15:33:23,745 - Farm-Green Valley Farm - INFO - Created device: Fruiting Room B-light_sensor-4 (5a4d11f7-c81f-4e6a-90b6-bdf6cbbf7053)
+2025-08-15 15:33:23,746 - Farm-Green Valley Farm - INFO - Created device: Maintenance Room C-temperature_sensor-1 (b5dab024-bcb8-4b51-a038-cb93d10fe35e)
+2025-08-15 15:33:23,746 - Farm-Green Valley Farm - INFO - Created device: Maintenance Room C-humidity_sensor-2 (7fc81f4f-9215-487d-afa2-a604e702ae85)
+2025-08-15 15:33:23,746 - Farm-Green Valley Farm - INFO - Created device: Maintenance Room C-co2_sensor-3 (308017c0-0695-4d6a-81bc-f3cbec29fadc)
+2025-08-15 15:33:23,747 - Farm-Green Valley Farm - INFO - Created device: Maintenance Room C-light_sensor-4 (87faafdc-6a0e-417c-8475-b3f799f50832)
+2025-08-15 15:33:23,747 - MQTTSimulator - INFO - Created farm: Green Valley Farm with 12 devices
+2025-08-15 15:33:23,747 - Farm-Mountain View Farm - INFO - Created device: Block House 1-temperature_sensor-1 (41b6843f-9c64-4083-acf2-adae625c8fce)
+2025-08-15 15:33:23,748 - Farm-Mountain View Farm - INFO - Created device: Block House 1-humidity_sensor-2 (3be86981-4254-493f-a136-7b24c4a1e04a)
+2025-08-15 15:33:23,748 - Farm-Mountain View Farm - INFO - Created device: Block House 1-co2_sensor-3 (a2027a57-4cfa-4465-aba5-2ad125164e09)
+2025-08-15 15:33:23,748 - Farm-Mountain View Farm - INFO - Created device: Block House 1-light_sensor-4 (dd017255-2762-410f-9171-ff1e9cc0ed6c)
+2025-08-15 15:33:23,748 - Farm-Mountain View Farm - INFO - Created device: Block House 2-temperature_sensor-1 (c1517054-9084-4e16-a8ba-ee9c94040ea5)
+2025-08-15 15:33:23,749 - Farm-Mountain View Farm - INFO - Created device: Block House 2-humidity_sensor-2 (e9ec32c5-748e-4c12-bfe2-17847931c442)
+2025-08-15 15:33:23,749 - Farm-Mountain View Farm - INFO - Created device: Block House 2-co2_sensor-3 (ab842218-444b-45f0-91be-3135b5c5d93d)
+2025-08-15 15:33:23,750 - Farm-Mountain View Farm - INFO - Created device: Block House 2-light_sensor-4 (ebad4dfd-f21d-466f-8a3d-3b5e8432956d)
+2025-08-15 15:33:23,750 - Farm-Mountain View Farm - INFO - Created device: Block House 3-temperature_sensor-1 (a341f5a7-3af9-4093-83e5-e118e279fb0e)
+2025-08-15 15:33:23,750 - Farm-Mountain View Farm - INFO - Created device: Block House 3-humidity_sensor-2 (304db33b-caef-4f54-8b38-8314153b5653)
+2025-08-15 15:33:23,750 - Farm-Mountain View Farm - INFO - Created device: Block House 3-co2_sensor-3 (f2b6f73e-e4c4-4a82-b6ab-5a8a334a486c)
+2025-08-15 15:33:23,751 - Farm-Mountain View Farm - INFO - Created device: Block House 3-light_sensor-4 (faece9eb-fb15-4503-841a-7559b68bc59f)
+2025-08-15 15:33:23,751 - MQTTSimulator - INFO - Created farm: Mountain View Farm with 12 devices
+2025-08-15 15:33:23,752 - AWSIoTPythonSDK.core.protocol.mqtt_core - INFO - MqttCore initialized
+2025-08-15 15:33:23,753 - AWSIoTPythonSDK.core.protocol.mqtt_core - INFO - Client id: mushroom_sim_8f06c70d
+2025-08-15 15:33:23,753 - AWSIoTPythonSDK.core.protocol.mqtt_core - INFO - Protocol version: MQTTv3.1.1
+2025-08-15 15:33:23,753 - AWSIoTPythonSDK.core.protocol.mqtt_core - INFO - Authentication type: TLSv1.2 certificate based Mutual Auth.
+2025-08-15 15:33:23,754 - MQTTSimulator - WARNING - Using localhost/demo mode - MQTT will not actually connect
+2025-08-15 15:33:23,754 - MQTTSimulator - INFO - Starting Mushroom Farm IoT Simulator
+2025-08-15 15:33:23,755 - MQTTSimulator - INFO - Demo mode - skipping MQTT connection
+2025-08-15 15:33:23,755 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/632512d0-a121-477b-ba63-7ad59bfb2533/telemetry: {
+  "device_id": "632512d0-a121-477b-ba63-7ad59bfb2533",
+  "timestamp": "2025-08-15T08:33:23.755445+00:00",
+  "status": "online",
+  "firmware_version": "v2.9.0",
+  "temperature_c": 21.55
+}
+2025-08-15 15:33:23,755 - MQTTSimulator - INFO - Simulator started with 2 farms
+2025-08-15 15:33:23,756 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/03f58996-45e5-4ae0-a241-dd443638865a/telemetry: {
+  "device_id": "03f58996-45e5-4ae0-a241-dd443638865a",
+  "timestamp": "2025-08-15T08:33:23.756444+00:00",
+  "status": "online",
+  "firmware_version": "v1.1.3",
+  "humidity_pct": 86.54
+}
+2025-08-15 15:33:23,757 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/60b1141b-420e-498e-8301-58ecab083b99/telemetry: {
+  "device_id": "60b1141b-420e-498e-8301-58ecab083b99",
+  "timestamp": "2025-08-15T08:33:23.757442+00:00",
+  "status": "online",
+  "firmware_version": "v1.9.3",
+  "co2_ppm": 1024.21
+}
+2025-08-15 15:33:23,758 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/c2502c7d-8308-4b15-a091-7dc21361052d/telemetry: {
+  "device_id": "c2502c7d-8308-4b15-a091-7dc21361052d",
+  "timestamp": "2025-08-15T08:33:23.758444+00:00",
+  "status": "online",
+  "firmware_version": "v3.6.1",
+  "light_lux": 211.21
+}
+2025-08-15 15:33:23,758 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/8cfa08fa-8613-4538-9d47-e4b3523532d5/telemetry: {
+  "device_id": "8cfa08fa-8613-4538-9d47-e4b3523532d5",
+  "timestamp": "2025-08-15T08:33:23.758444+00:00",
+  "status": "online",
+  "firmware_version": "v3.3.0",
+  "temperature_c": 22.11
+}
+2025-08-15 15:33:23,759 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/7aaa5d2e-e82c-4e6a-a2e9-a5923e446b2f/telemetry: {
+  "device_id": "7aaa5d2e-e82c-4e6a-a2e9-a5923e446b2f",
+  "timestamp": "2025-08-15T08:33:23.759442+00:00",
+  "status": "online",
+  "firmware_version": "v3.4.6",
+  "humidity_pct": 85.67
+}
+2025-08-15 15:33:23,759 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/707dc8ea-d39e-49d7-8109-ba3eb126770c/telemetry: {
+  "device_id": "707dc8ea-d39e-49d7-8109-ba3eb126770c",
+  "timestamp": "2025-08-15T08:33:23.759442+00:00",
+  "status": "online",
+  "firmware_version": "v1.3.3",
+  "co2_ppm": 971.49
+}
+2025-08-15 15:33:23,760 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/5a4d11f7-c81f-4e6a-90b6-bdf6cbbf7053/telemetry: {
+  "device_id": "5a4d11f7-c81f-4e6a-90b6-bdf6cbbf7053",
+  "timestamp": "2025-08-15T08:33:23.760474+00:00",
+  "status": "online",
+  "firmware_version": "v1.3.1",
+  "light_lux": 223.77
+}
+2025-08-15 15:33:23,761 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/b5dab024-bcb8-4b51-a038-cb93d10fe35e/telemetry: {
+  "device_id": "b5dab024-bcb8-4b51-a038-cb93d10fe35e",
+  "timestamp": "2025-08-15T08:33:23.760474+00:00",
+  "status": "online",
+  "firmware_version": "v1.6.9",
+  "temperature_c": 21.56
+}
+2025-08-15 15:33:23,761 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/7fc81f4f-9215-487d-afa2-a604e702ae85/telemetry: {
+  "device_id": "7fc81f4f-9215-487d-afa2-a604e702ae85",
+  "timestamp": "2025-08-15T08:33:23.761444+00:00",
+  "status": "online",
+  "firmware_version": "v2.3.6",
+  "humidity_pct": 86.0
+}
+2025-08-15 15:33:23,762 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/308017c0-0695-4d6a-81bc-f3cbec29fadc/telemetry: {
+  "device_id": "308017c0-0695-4d6a-81bc-f3cbec29fadc",
+  "timestamp": "2025-08-15T08:33:23.762440+00:00",
+  "status": "online",
+  "firmware_version": "v1.4.7",
+  "co2_ppm": 962.87
+}
+2025-08-15 15:33:23,763 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/87faafdc-6a0e-417c-8475-b3f799f50832/telemetry: {
+  "device_id": "87faafdc-6a0e-417c-8475-b3f799f50832",
+  "timestamp": "2025-08-15T08:33:23.763442+00:00",
+  "status": "online",
+  "firmware_version": "v2.0.5",
+  "light_lux": 196.89
+}
+2025-08-15 15:33:23,764 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/41b6843f-9c64-4083-acf2-adae625c8fce/telemetry: {
+  "device_id": "41b6843f-9c64-4083-acf2-adae625c8fce",
+  "timestamp": "2025-08-15T08:33:23.764444+00:00",
+  "status": "online",
+  "firmware_version": "v2.5.4",
+  "temperature_c": 22.73
+}
+2025-08-15 15:33:23,765 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/3be86981-4254-493f-a136-7b24c4a1e04a/telemetry: {
+  "device_id": "3be86981-4254-493f-a136-7b24c4a1e04a",
+  "timestamp": "2025-08-15T08:33:23.765469+00:00",
+  "status": "online",
+  "firmware_version": "v2.2.7",
+  "humidity_pct": 83.61
+}
+2025-08-15 15:33:23,766 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/a2027a57-4cfa-4465-aba5-2ad125164e09/telemetry: {
+  "device_id": "a2027a57-4cfa-4465-aba5-2ad125164e09",
+  "timestamp": "2025-08-15T08:33:23.766445+00:00",
+  "status": "online",
+  "firmware_version": "v2.8.5",
+  "co2_ppm": 1009.27
+}
+2025-08-15 15:33:23,767 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/dd017255-2762-410f-9171-ff1e9cc0ed6c/telemetry: {
+  "device_id": "dd017255-2762-410f-9171-ff1e9cc0ed6c",
+  "timestamp": "2025-08-15T08:33:23.767444+00:00",
+  "status": "online",
+  "firmware_version": "v3.1.1",
+  "light_lux": 216.72
+}
+2025-08-15 15:33:23,768 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/c1517054-9084-4e16-a8ba-ee9c94040ea5/telemetry: {
+  "device_id": "c1517054-9084-4e16-a8ba-ee9c94040ea5",
+  "timestamp": "2025-08-15T08:33:23.768443+00:00",
+  "status": "online",
+  "firmware_version": "v3.2.2",
+  "temperature_c": 21.48
+}
+2025-08-15 15:33:23,769 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/e9ec32c5-748e-4c12-bfe2-17847931c442/telemetry: {
+  "device_id": "e9ec32c5-748e-4c12-bfe2-17847931c442",
+  "timestamp": "2025-08-15T08:33:23.769445+00:00",
+  "status": "online",
+  "firmware_version": "v2.1.1",
+  "humidity_pct": 84.43
+}
+2025-08-15 15:33:23,770 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/ab842218-444b-45f0-91be-3135b5c5d93d/telemetry: {
+  "device_id": "ab842218-444b-45f0-91be-3135b5c5d93d",
+  "timestamp": "2025-08-15T08:33:23.770441+00:00",
+  "status": "online",
+  "firmware_version": "v2.8.1",
+  "co2_ppm": 1020.95
+}
+2025-08-15 15:33:23,771 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/ebad4dfd-f21d-466f-8a3d-3b5e8432956d/telemetry: {
+  "device_id": "ebad4dfd-f21d-466f-8a3d-3b5e8432956d",
+  "timestamp": "2025-08-15T08:33:23.771441+00:00",
+  "status": "online",
+  "firmware_version": "v1.0.8",
+  "light_lux": 186.83
+}
+2025-08-15 15:33:23,772 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/a341f5a7-3af9-4093-83e5-e118e279fb0e/telemetry: {
+  "device_id": "a341f5a7-3af9-4093-83e5-e118e279fb0e",
+  "timestamp": "2025-08-15T08:33:23.772440+00:00",
+  "status": "online",
+  "firmware_version": "v1.6.7",
+  "temperature_c": 21.11
+}
+2025-08-15 15:33:23,772 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/304db33b-caef-4f54-8b38-8314153b5653/telemetry: {
+  "device_id": "304db33b-caef-4f54-8b38-8314153b5653",
+  "timestamp": "2025-08-15T08:33:23.772440+00:00",
+  "status": "online",
+  "firmware_version": "v3.1.9",
+  "humidity_pct": 86.54
+}
+2025-08-15 15:33:23,773 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/f2b6f73e-e4c4-4a82-b6ab-5a8a334a486c/telemetry: {
+  "device_id": "f2b6f73e-e4c4-4a82-b6ab-5a8a334a486c",
+  "timestamp": "2025-08-15T08:33:23.773442+00:00",
+  "status": "online",
+  "firmware_version": "v2.3.7",
+  "co2_ppm": 1013.52
+}
+2025-08-15 15:33:23,774 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/faece9eb-fb15-4503-841a-7559b68bc59f/telemetry: {
+  "device_id": "faece9eb-fb15-4503-841a-7559b68bc59f",
+  "timestamp": "2025-08-15T08:33:23.774440+00:00",
+  "status": "online",
+  "firmware_version": "v1.5.9",
+  "light_lux": 219.48
+}
+2025-08-15 15:33:53,939 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/632512d0-a121-477b-ba63-7ad59bfb2533/telemetry: {
+  "device_id": "632512d0-a121-477b-ba63-7ad59bfb2533",
+  "timestamp": "2025-08-15T08:33:53.939123+00:00",
+  "status": "online",
+  "firmware_version": "v2.9.0",
+  "temperature_c": 21.75
+}
+2025-08-15 15:33:53,940 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/03f58996-45e5-4ae0-a241-dd443638865a/telemetry: {
+  "device_id": "03f58996-45e5-4ae0-a241-dd443638865a",
+  "timestamp": "2025-08-15T08:33:53.939123+00:00",
+  "status": "online",
+  "firmware_version": "v1.1.3",
+  "humidity_pct": 86.63
+}
+2025-08-15 15:33:53,940 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/60b1141b-420e-498e-8301-58ecab083b99/telemetry: {
+  "device_id": "60b1141b-420e-498e-8301-58ecab083b99",
+  "timestamp": "2025-08-15T08:33:53.940031+00:00",
+  "status": "online",
+  "firmware_version": "v1.9.3",
+  "co2_ppm": 1015.65
+}
+2025-08-15 15:33:53,941 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/c2502c7d-8308-4b15-a091-7dc21361052d/telemetry: {
+  "device_id": "c2502c7d-8308-4b15-a091-7dc21361052d",
+  "timestamp": "2025-08-15T08:33:53.941027+00:00",
+  "status": "online",
+  "firmware_version": "v3.6.1",
+  "light_lux": 213.25
+}
+2025-08-15 15:33:53,941 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/8cfa08fa-8613-4538-9d47-e4b3523532d5/telemetry: {
+  "device_id": "8cfa08fa-8613-4538-9d47-e4b3523532d5",
+  "timestamp": "2025-08-15T08:33:53.941027+00:00",
+  "status": "online",
+  "firmware_version": "v3.3.0",
+  "temperature_c": 22.14
+}
+2025-08-15 15:33:53,942 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/7aaa5d2e-e82c-4e6a-a2e9-a5923e446b2f/telemetry: {
+  "device_id": "7aaa5d2e-e82c-4e6a-a2e9-a5923e446b2f",
+  "timestamp": "2025-08-15T08:33:53.942025+00:00",
+  "status": "online",
+  "firmware_version": "v3.4.6",
+  "humidity_pct": 86.04
+}
+2025-08-15 15:33:53,942 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/707dc8ea-d39e-49d7-8109-ba3eb126770c/telemetry: {
+  "device_id": "707dc8ea-d39e-49d7-8109-ba3eb126770c",
+  "timestamp": "2025-08-15T08:33:53.942025+00:00",
+  "status": "online",
+  "firmware_version": "v1.3.3",
+  "co2_ppm": 983.57
+}
+2025-08-15 15:33:53,943 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/5a4d11f7-c81f-4e6a-90b6-bdf6cbbf7053/telemetry: {
+  "device_id": "5a4d11f7-c81f-4e6a-90b6-bdf6cbbf7053",
+  "timestamp": "2025-08-15T08:33:53.943026+00:00",
+  "status": "online",
+  "firmware_version": "v1.3.1",
+  "light_lux": 221.27
+}
+2025-08-15 15:33:53,944 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/b5dab024-bcb8-4b51-a038-cb93d10fe35e/telemetry: {
+  "device_id": "b5dab024-bcb8-4b51-a038-cb93d10fe35e",
+  "timestamp": "2025-08-15T08:33:53.944027+00:00",
+  "status": "online",
+  "firmware_version": "v1.6.9",
+  "temperature_c": 21.5
+}
+2025-08-15 15:33:53,944 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/7fc81f4f-9215-487d-afa2-a604e702ae85/telemetry: {
+  "device_id": "7fc81f4f-9215-487d-afa2-a604e702ae85",
+  "timestamp": "2025-08-15T08:33:53.944027+00:00",
+  "status": "online",
+  "firmware_version": "v2.3.6",
+  "humidity_pct": 85.49
+}
+2025-08-15 15:33:53,945 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/308017c0-0695-4d6a-81bc-f3cbec29fadc/telemetry: {
+  "device_id": "308017c0-0695-4d6a-81bc-f3cbec29fadc",
+  "timestamp": "2025-08-15T08:33:53.945025+00:00",
+  "status": "online",
+  "firmware_version": "v1.4.7",
+  "co2_ppm": 964.81
+}
+2025-08-15 15:33:53,945 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/87faafdc-6a0e-417c-8475-b3f799f50832/telemetry: {
+  "device_id": "87faafdc-6a0e-417c-8475-b3f799f50832",
+  "timestamp": "2025-08-15T08:33:53.945025+00:00",
+  "status": "online",
+  "firmware_version": "v2.0.5",
+  "light_lux": 200.4
+}
+2025-08-15 15:33:53,946 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/41b6843f-9c64-4083-acf2-adae625c8fce/telemetry: {
+  "device_id": "41b6843f-9c64-4083-acf2-adae625c8fce",
+  "timestamp": "2025-08-15T08:33:53.946028+00:00",
+  "status": "online",
+  "firmware_version": "v2.5.4",
+  "temperature_c": 22.69
+}
+2025-08-15 15:33:53,946 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/3be86981-4254-493f-a136-7b24c4a1e04a/telemetry: {
+  "device_id": "3be86981-4254-493f-a136-7b24c4a1e04a",
+  "timestamp": "2025-08-15T08:33:53.946028+00:00",
+  "status": "online",
+  "firmware_version": "v2.2.7",
+  "humidity_pct": 83.49
+}
+2025-08-15 15:33:53,947 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/a2027a57-4cfa-4465-aba5-2ad125164e09/telemetry: {
+  "device_id": "a2027a57-4cfa-4465-aba5-2ad125164e09",
+  "timestamp": "2025-08-15T08:33:53.947026+00:00",
+  "status": "online",
+  "firmware_version": "v2.8.5",
+  "co2_ppm": 998.37
+}
+2025-08-15 15:33:53,948 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/dd017255-2762-410f-9171-ff1e9cc0ed6c/telemetry: {
+  "device_id": "dd017255-2762-410f-9171-ff1e9cc0ed6c",
+  "timestamp": "2025-08-15T08:33:53.948028+00:00",
+  "status": "online",
+  "firmware_version": "v3.1.1",
+  "light_lux": 218.52
+}
+2025-08-15 15:33:53,948 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/c1517054-9084-4e16-a8ba-ee9c94040ea5/telemetry: {
+  "device_id": "c1517054-9084-4e16-a8ba-ee9c94040ea5",
+  "timestamp": "2025-08-15T08:33:53.948028+00:00",
+  "status": "online",
+  "firmware_version": "v3.2.2",
+  "temperature_c": 21.61
+}
+2025-08-15 15:33:53,949 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/e9ec32c5-748e-4c12-bfe2-17847931c442/telemetry: {
+  "device_id": "e9ec32c5-748e-4c12-bfe2-17847931c442",
+  "timestamp": "2025-08-15T08:33:53.949027+00:00",
+  "status": "online",
+  "firmware_version": "v2.1.1",
+  "humidity_pct": 84.98
+}
+2025-08-15 15:33:53,949 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/ab842218-444b-45f0-91be-3135b5c5d93d/telemetry: {
+  "device_id": "ab842218-444b-45f0-91be-3135b5c5d93d",
+  "timestamp": "2025-08-15T08:33:53.949027+00:00",
+  "status": "online",
+  "firmware_version": "v2.8.1",
+  "co2_ppm": 1010.86
+}
+2025-08-15 15:33:53,950 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/ebad4dfd-f21d-466f-8a3d-3b5e8432956d/telemetry: {
+  "device_id": "ebad4dfd-f21d-466f-8a3d-3b5e8432956d",
+  "timestamp": "2025-08-15T08:33:53.950026+00:00",
+  "status": "online",
+  "firmware_version": "v1.0.8",
+  "light_lux": 186.62
+}
+2025-08-15 15:33:53,950 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/a341f5a7-3af9-4093-83e5-e118e279fb0e/telemetry: {
+  "device_id": "a341f5a7-3af9-4093-83e5-e118e279fb0e",
+  "timestamp": "2025-08-15T08:33:53.950026+00:00",
+  "status": "online",
+  "firmware_version": "v1.6.7",
+  "temperature_c": 21.1
+}
+2025-08-15 15:33:53,951 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/304db33b-caef-4f54-8b38-8314153b5653/telemetry: {
+  "device_id": "304db33b-caef-4f54-8b38-8314153b5653",
+  "timestamp": "2025-08-15T08:33:53.951025+00:00",
+  "status": "online",
+  "firmware_version": "v3.1.9",
+  "humidity_pct": 86.09
+}
+2025-08-15 15:33:53,951 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/f2b6f73e-e4c4-4a82-b6ab-5a8a334a486c/telemetry: {
+  "device_id": "f2b6f73e-e4c4-4a82-b6ab-5a8a334a486c",
+  "timestamp": "2025-08-15T08:33:53.951025+00:00",
+  "status": "online",
+  "firmware_version": "v2.3.7",
+  "co2_ppm": 1017.19
+}
+2025-08-15 15:33:53,952 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/faece9eb-fb15-4503-841a-7559b68bc59f/telemetry: {
+  "device_id": "faece9eb-fb15-4503-841a-7559b68bc59f",
+  "timestamp": "2025-08-15T08:33:53.952026+00:00",
+  "status": "online",
+  "firmware_version": "v1.5.9",
+  "light_lux": 212.56
+}
+2025-08-15 15:34:23,114 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/632512d0-a121-477b-ba63-7ad59bfb2533/telemetry: {
+  "device_id": "632512d0-a121-477b-ba63-7ad59bfb2533",
+  "timestamp": "2025-08-15T08:34:23.114757+00:00",
+  "status": "online",
+  "firmware_version": "v2.9.0",
+  "temperature_c": 21.67
+}
+2025-08-15 15:34:23,114 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/03f58996-45e5-4ae0-a241-dd443638865a/telemetry: {
+  "device_id": "03f58996-45e5-4ae0-a241-dd443638865a",
+  "timestamp": "2025-08-15T08:34:23.114757+00:00",
+  "status": "online",
+  "firmware_version": "v1.1.3",
+  "humidity_pct": 86.63
+}
+2025-08-15 15:34:23,115 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/60b1141b-420e-498e-8301-58ecab083b99/telemetry: {
+  "device_id": "60b1141b-420e-498e-8301-58ecab083b99",
+  "timestamp": "2025-08-15T08:34:23.115784+00:00",
+  "status": "online",
+  "firmware_version": "v1.9.3",
+  "co2_ppm": 1004.79
+}
+2025-08-15 15:34:23,116 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/c2502c7d-8308-4b15-a091-7dc21361052d/telemetry: {
+  "device_id": "c2502c7d-8308-4b15-a091-7dc21361052d",
+  "timestamp": "2025-08-15T08:34:23.116766+00:00",
+  "status": "online",
+  "firmware_version": "v3.6.1",
+  "light_lux": 209.42
+}
+2025-08-15 15:34:23,116 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/8cfa08fa-8613-4538-9d47-e4b3523532d5/telemetry: {
+  "device_id": "8cfa08fa-8613-4538-9d47-e4b3523532d5",
+  "timestamp": "2025-08-15T08:34:23.116766+00:00",
+  "status": "online",
+  "firmware_version": "v3.3.0",
+  "temperature_c": 22.0
+}
+2025-08-15 15:34:23,117 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/7aaa5d2e-e82c-4e6a-a2e9-a5923e446b2f/telemetry: {
+  "device_id": "7aaa5d2e-e82c-4e6a-a2e9-a5923e446b2f",
+  "timestamp": "2025-08-15T08:34:23.117783+00:00",
+  "status": "online",
+  "firmware_version": "v3.4.6",
+  "humidity_pct": 85.79
+}
+2025-08-15 15:34:23,118 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/707dc8ea-d39e-49d7-8109-ba3eb126770c/telemetry: {
+  "device_id": "707dc8ea-d39e-49d7-8109-ba3eb126770c",
+  "timestamp": "2025-08-15T08:34:23.118766+00:00",
+  "status": "online",
+  "firmware_version": "v1.3.3",
+  "co2_ppm": 987.96
+}
+2025-08-15 15:34:23,119 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/5a4d11f7-c81f-4e6a-90b6-bdf6cbbf7053/telemetry: {
+  "device_id": "5a4d11f7-c81f-4e6a-90b6-bdf6cbbf7053",
+  "timestamp": "2025-08-15T08:34:23.118766+00:00",
+  "status": "online",
+  "firmware_version": "v1.3.1",
+  "light_lux": 217.87
+}
+2025-08-15 15:34:23,119 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/b5dab024-bcb8-4b51-a038-cb93d10fe35e/telemetry: {
+  "device_id": "b5dab024-bcb8-4b51-a038-cb93d10fe35e",
+  "timestamp": "2025-08-15T08:34:23.119767+00:00",
+  "status": "online",
+  "firmware_version": "v1.6.9",
+  "temperature_c": 21.75
+}
+2025-08-15 15:34:23,120 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/7fc81f4f-9215-487d-afa2-a604e702ae85/telemetry: {
+  "device_id": "7fc81f4f-9215-487d-afa2-a604e702ae85",
+  "timestamp": "2025-08-15T08:34:23.120765+00:00",
+  "status": "online",
+  "firmware_version": "v2.3.6",
+  "humidity_pct": 85.48
+}
+2025-08-15 15:34:23,120 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/308017c0-0695-4d6a-81bc-f3cbec29fadc/telemetry: {
+  "device_id": "308017c0-0695-4d6a-81bc-f3cbec29fadc",
+  "timestamp": "2025-08-15T08:34:23.120765+00:00",
+  "status": "online",
+  "firmware_version": "v1.4.7",
+  "co2_ppm": 972.87
+}
+2025-08-15 15:34:23,121 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/87faafdc-6a0e-417c-8475-b3f799f50832/telemetry: {
+  "device_id": "87faafdc-6a0e-417c-8475-b3f799f50832",
+  "timestamp": "2025-08-15T08:34:23.121766+00:00",
+  "status": "online",
+  "firmware_version": "v2.0.5",
+  "light_lux": 196.29
+}
+2025-08-15 15:34:23,122 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/41b6843f-9c64-4083-acf2-adae625c8fce/telemetry: {
+  "device_id": "41b6843f-9c64-4083-acf2-adae625c8fce",
+  "timestamp": "2025-08-15T08:34:23.121766+00:00",
+  "status": "online",
+  "firmware_version": "v2.5.4",
+  "temperature_c": 22.78
+}
+2025-08-15 15:34:23,122 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/3be86981-4254-493f-a136-7b24c4a1e04a/telemetry: {
+  "device_id": "3be86981-4254-493f-a136-7b24c4a1e04a",
+  "timestamp": "2025-08-15T08:34:23.122766+00:00",
+  "status": "online",
+  "firmware_version": "v2.2.7",
+  "humidity_pct": 83.44
+}
+2025-08-15 15:34:23,123 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/a2027a57-4cfa-4465-aba5-2ad125164e09/telemetry: {
+  "device_id": "a2027a57-4cfa-4465-aba5-2ad125164e09",
+  "timestamp": "2025-08-15T08:34:23.123842+00:00",
+  "status": "online",
+  "firmware_version": "v2.8.5",
+  "co2_ppm": 994.19
+}
+2025-08-15 15:34:23,124 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/dd017255-2762-410f-9171-ff1e9cc0ed6c/telemetry: {
+  "device_id": "dd017255-2762-410f-9171-ff1e9cc0ed6c",
+  "timestamp": "2025-08-15T08:34:23.124349+00:00",
+  "status": "online",
+  "firmware_version": "v3.1.1",
+  "light_lux": 217.72
+}
+2025-08-15 15:34:23,125 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/c1517054-9084-4e16-a8ba-ee9c94040ea5/telemetry: {
+  "device_id": "c1517054-9084-4e16-a8ba-ee9c94040ea5",
+  "timestamp": "2025-08-15T08:34:23.124349+00:00",
+  "status": "online",
+  "firmware_version": "v3.2.2",
+  "temperature_c": 21.69
+}
+2025-08-15 15:34:23,125 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/e9ec32c5-748e-4c12-bfe2-17847931c442/telemetry: {
+  "device_id": "e9ec32c5-748e-4c12-bfe2-17847931c442",
+  "timestamp": "2025-08-15T08:34:23.125377+00:00",
+  "status": "online",
+  "firmware_version": "v2.1.1",
+  "humidity_pct": 85.44
+}
+2025-08-15 15:34:23,126 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/ab842218-444b-45f0-91be-3135b5c5d93d/telemetry: {
+  "device_id": "ab842218-444b-45f0-91be-3135b5c5d93d",
+  "timestamp": "2025-08-15T08:34:23.126357+00:00",
+  "status": "online",
+  "firmware_version": "v2.8.1",
+  "co2_ppm": 1000.91
+}
+2025-08-15 15:34:23,127 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/ebad4dfd-f21d-466f-8a3d-3b5e8432956d/telemetry: {
+  "device_id": "ebad4dfd-f21d-466f-8a3d-3b5e8432956d",
+  "timestamp": "2025-08-15T08:34:23.127356+00:00",
+  "status": "online",
+  "firmware_version": "v1.0.8",
+  "light_lux": 189.59
+}
+2025-08-15 15:34:23,128 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/a341f5a7-3af9-4093-83e5-e118e279fb0e/telemetry: {
+  "device_id": "a341f5a7-3af9-4093-83e5-e118e279fb0e",
+  "timestamp": "2025-08-15T08:34:23.128359+00:00",
+  "status": "online",
+  "firmware_version": "v1.6.7",
+  "temperature_c": 21.17
+}
+2025-08-15 15:34:23,128 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/304db33b-caef-4f54-8b38-8314153b5653/telemetry: {
+  "device_id": "304db33b-caef-4f54-8b38-8314153b5653",
+  "timestamp": "2025-08-15T08:34:23.128932+00:00",
+  "status": "online",
+  "firmware_version": "v3.1.9",
+  "humidity_pct": 85.67
+}
+2025-08-15 15:34:23,129 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/f2b6f73e-e4c4-4a82-b6ab-5a8a334a486c/telemetry: {
+  "device_id": "f2b6f73e-e4c4-4a82-b6ab-5a8a334a486c",
+  "timestamp": "2025-08-15T08:34:23.129127+00:00",
+  "status": "online",
+  "firmware_version": "v2.3.7",
+  "co2_ppm": 1006.71
+}
+2025-08-15 15:34:23,130 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/faece9eb-fb15-4503-841a-7559b68bc59f/telemetry: {
+  "device_id": "faece9eb-fb15-4503-841a-7559b68bc59f",
+  "timestamp": "2025-08-15T08:34:23.130137+00:00",
+  "status": "online",
+  "firmware_version": "v1.5.9",
+  "light_lux": 208.45
+}
+2025-08-15 15:34:49,722 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/632512d0-a121-477b-ba63-7ad59bfb2533/telemetry: {
+  "device_id": "632512d0-a121-477b-ba63-7ad59bfb2533",
+  "timestamp": "2025-08-15T08:34:49.722598+00:00",
+  "status": "online",
+  "firmware_version": "v2.9.0",
+  "temperature_c": 21.59
+}
+2025-08-15 15:34:49,722 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/03f58996-45e5-4ae0-a241-dd443638865a/telemetry: {
+  "device_id": "03f58996-45e5-4ae0-a241-dd443638865a",
+  "timestamp": "2025-08-15T08:34:49.722598+00:00",
+  "status": "online",
+  "firmware_version": "v1.1.3",
+  "humidity_pct": 86.95
+}
+2025-08-15 15:34:49,723 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/60b1141b-420e-498e-8301-58ecab083b99/telemetry: {
+  "device_id": "60b1141b-420e-498e-8301-58ecab083b99",
+  "timestamp": "2025-08-15T08:34:49.723548+00:00",
+  "status": "online",
+  "firmware_version": "v1.9.3",
+  "co2_ppm": 1012.81
+}
+2025-08-15 15:34:49,724 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/e42c3f07-5308-4015-9a91-5dd0a950be41/device/c2502c7d-8308-4b15-a091-7dc21361052d/telemetry: {
+  "device_id": "c2502c7d-8308-4b15-a091-7dc21361052d",
+  "timestamp": "2025-08-15T08:34:49.723548+00:00",
+  "status": "online",
+  "firmware_version": "v3.6.1",
+  "light_lux": 210.5
+}
+2025-08-15 15:34:49,724 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/8cfa08fa-8613-4538-9d47-e4b3523532d5/telemetry: {
+  "device_id": "8cfa08fa-8613-4538-9d47-e4b3523532d5",
+  "timestamp": "2025-08-15T08:34:49.724542+00:00",
+  "status": "online",
+  "firmware_version": "v3.3.0",
+  "temperature_c": 22.1
+}
+2025-08-15 15:34:49,725 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/7aaa5d2e-e82c-4e6a-a2e9-a5923e446b2f/telemetry: {
+  "device_id": "7aaa5d2e-e82c-4e6a-a2e9-a5923e446b2f",
+  "timestamp": "2025-08-15T08:34:49.725542+00:00",
+  "status": "online",
+  "firmware_version": "v3.4.6",
+  "humidity_pct": 85.85
+}
+2025-08-15 15:34:49,725 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/707dc8ea-d39e-49d7-8109-ba3eb126770c/telemetry: {
+  "device_id": "707dc8ea-d39e-49d7-8109-ba3eb126770c",
+  "timestamp": "2025-08-15T08:34:49.725542+00:00",
+  "status": "online",
+  "firmware_version": "v1.3.3",
+  "co2_ppm": 987.04
+}
+2025-08-15 15:34:49,726 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/5c8b8ec2-a196-49e6-a2f2-e238673eb855/device/5a4d11f7-c81f-4e6a-90b6-bdf6cbbf7053/telemetry: {
+  "device_id": "5a4d11f7-c81f-4e6a-90b6-bdf6cbbf7053",
+  "timestamp": "2025-08-15T08:34:49.726541+00:00",
+  "status": "online",
+  "firmware_version": "v1.3.1",
+  "light_lux": 215.52
+}
+2025-08-15 15:34:49,726 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/b5dab024-bcb8-4b51-a038-cb93d10fe35e/telemetry: {
+  "device_id": "b5dab024-bcb8-4b51-a038-cb93d10fe35e",
+  "timestamp": "2025-08-15T08:34:49.726541+00:00",
+  "status": "online",
+  "firmware_version": "v1.6.9",
+  "temperature_c": 21.72
+}
+2025-08-15 15:34:49,727 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/7fc81f4f-9215-487d-afa2-a604e702ae85/telemetry: {
+  "device_id": "7fc81f4f-9215-487d-afa2-a604e702ae85",
+  "timestamp": "2025-08-15T08:34:49.727540+00:00",
+  "status": "online",
+  "firmware_version": "v2.3.6",
+  "humidity_pct": 85.9
+}
+2025-08-15 15:34:49,727 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/308017c0-0695-4d6a-81bc-f3cbec29fadc/telemetry: {
+  "device_id": "308017c0-0695-4d6a-81bc-f3cbec29fadc",
+  "timestamp": "2025-08-15T08:34:49.727540+00:00",
+  "status": "online",
+  "firmware_version": "v1.4.7",
+  "co2_ppm": 985.54
+}
+2025-08-15 15:34:49,728 - MQTTSimulator - INFO - [DEMO] Would publish to farm/fc310434-5df4-485a-9759-64682ea530e6/room/7bfed40c-def1-4cb4-832d-1b226e4e39b6/device/87faafdc-6a0e-417c-8475-b3f799f50832/telemetry: {
+  "device_id": "87faafdc-6a0e-417c-8475-b3f799f50832",
+  "timestamp": "2025-08-15T08:34:49.728554+00:00",
+  "status": "online",
+  "firmware_version": "v2.0.5",
+  "light_lux": 193.96
+}
+2025-08-15 15:34:49,729 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/41b6843f-9c64-4083-acf2-adae625c8fce/telemetry: {
+  "device_id": "41b6843f-9c64-4083-acf2-adae625c8fce",
+  "timestamp": "2025-08-15T08:34:49.729541+00:00",
+  "status": "online",
+  "firmware_version": "v2.5.4",
+  "temperature_c": 22.75
+}
+2025-08-15 15:34:49,729 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/3be86981-4254-493f-a136-7b24c4a1e04a/telemetry: {
+  "device_id": "3be86981-4254-493f-a136-7b24c4a1e04a",
+  "timestamp": "2025-08-15T08:34:49.729541+00:00",
+  "status": "online",
+  "firmware_version": "v2.2.7",
+  "humidity_pct": 83.35
+}
+2025-08-15 15:34:49,730 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/a2027a57-4cfa-4465-aba5-2ad125164e09/telemetry: {
+  "device_id": "a2027a57-4cfa-4465-aba5-2ad125164e09",
+  "timestamp": "2025-08-15T08:34:49.730541+00:00",
+  "status": "online",
+  "firmware_version": "v2.8.5",
+  "co2_ppm": 1002.4
+}
+2025-08-15 15:34:49,731 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/b048666b-9900-4cd7-b7f9-3ad3f48296c1/device/dd017255-2762-410f-9171-ff1e9cc0ed6c/telemetry: {
+  "device_id": "dd017255-2762-410f-9171-ff1e9cc0ed6c",
+  "timestamp": "2025-08-15T08:34:49.731554+00:00",
+  "status": "online",
+  "firmware_version": "v3.1.1",
+  "light_lux": 219.48
+}
+2025-08-15 15:34:49,731 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/c1517054-9084-4e16-a8ba-ee9c94040ea5/telemetry: {
+  "device_id": "c1517054-9084-4e16-a8ba-ee9c94040ea5",
+  "timestamp": "2025-08-15T08:34:49.731554+00:00",
+  "status": "online",
+  "firmware_version": "v3.2.2",
+  "temperature_c": 21.9
+}
+2025-08-15 15:34:49,732 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/e9ec32c5-748e-4c12-bfe2-17847931c442/telemetry: {
+  "device_id": "e9ec32c5-748e-4c12-bfe2-17847931c442",
+  "timestamp": "2025-08-15T08:34:49.732541+00:00",
+  "status": "online",
+  "firmware_version": "v2.1.1",
+  "humidity_pct": 85.53
+}
+2025-08-15 15:34:49,732 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/ab842218-444b-45f0-91be-3135b5c5d93d/telemetry: {
+  "device_id": "ab842218-444b-45f0-91be-3135b5c5d93d",
+  "timestamp": "2025-08-15T08:34:49.732541+00:00",
+  "status": "online",
+  "firmware_version": "v2.8.1",
+  "co2_ppm": 994.57
+}
+2025-08-15 15:34:49,733 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/387a347d-9568-4704-8da5-835f63ea9284/device/ebad4dfd-f21d-466f-8a3d-3b5e8432956d/telemetry: {
+  "device_id": "ebad4dfd-f21d-466f-8a3d-3b5e8432956d",
+  "timestamp": "2025-08-15T08:34:49.733541+00:00",
+  "status": "online",
+  "firmware_version": "v1.0.8",
+  "light_lux": 192.9
+}
+2025-08-15 15:34:49,733 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/a341f5a7-3af9-4093-83e5-e118e279fb0e/telemetry: {
+  "device_id": "a341f5a7-3af9-4093-83e5-e118e279fb0e",
+  "timestamp": "2025-08-15T08:34:49.733541+00:00",
+  "status": "online",
+  "firmware_version": "v1.6.7",
+  "temperature_c": 21.1
+}
+2025-08-15 15:34:49,734 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/304db33b-caef-4f54-8b38-8314153b5653/telemetry: {
+  "device_id": "304db33b-caef-4f54-8b38-8314153b5653",
+  "timestamp": "2025-08-15T08:34:49.734551+00:00",
+  "status": "online",
+  "firmware_version": "v3.1.9",
+  "humidity_pct": 85.67
+}
+2025-08-15 15:34:49,735 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/f2b6f73e-e4c4-4a82-b6ab-5a8a334a486c/telemetry: {
+  "device_id": "f2b6f73e-e4c4-4a82-b6ab-5a8a334a486c",
+  "timestamp": "2025-08-15T08:34:49.734551+00:00",
+  "status": "online",
+  "firmware_version": "v2.3.7",
+  "co2_ppm": 1012.3
+}
+2025-08-15 15:34:49,735 - MQTTSimulator - INFO - [DEMO] Would publish to farm/01442393-f0c4-46b1-bb75-2912de06a19f/room/4ee419b3-b66e-4eb1-904d-50526057ae2d/device/faece9eb-fb15-4503-841a-7559b68bc59f/telemetry: {
+  "device_id": "faece9eb-fb15-4503-841a-7559b68bc59f",
+  "timestamp": "2025-08-15T08:34:49.735542+00:00",
+  "status": "online",
+  "firmware_version": "v1.5.9",
+  "light_lux": 209.49
+}
+2025-08-15 15:34:55,649 - MQTTSimulator - INFO - Shutting down simulator...
+2025-08-15 15:34:55,650 - MQTTSimulator - INFO - Simulator stopped
+2025-08-15 15:34:55,650 - MQTTSimulator - INFO - Simulator stopped

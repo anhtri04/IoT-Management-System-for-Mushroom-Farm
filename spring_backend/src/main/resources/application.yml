@@ -1,0 +1,218 @@
+# IoT Smart Farm Application Configuration
+spring:
+  application:
+    name: iot-smart-farm
+  
+  # Database Configuration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/smartfarm
+    username: ${DB_USERNAME:smartfarm}
+    password: ${DB_PASSWORD:smartfarm123}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+  
+  # JPA Configuration
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        use_sql_comments: true
+        jdbc:
+          time_zone: UTC
+    open-in-view: false
+  
+  # Flyway Migration
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    validate-on-migrate: true
+  
+  # Security Configuration
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${AWS_COGNITO_ISSUER_URI:https://cognito-idp.us-east-1.amazonaws.com/us-east-1_XXXXXXXXX}
+          jwk-set-uri: ${AWS_COGNITO_JWK_URI:https://cognito-idp.us-east-1.amazonaws.com/us-east-1_XXXXXXXXX/.well-known/jwks.json}
+  
+  # Jackson Configuration
+  jackson:
+    time-zone: UTC
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      fail-on-unknown-properties: false
+
+# Server Configuration
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /api
+  error:
+    include-message: always
+    include-binding-errors: always
+
+# Management/Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when-authorized
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+# AWS Configuration
+aws:
+  region: ${AWS_REGION:us-east-1}
+  cognito:
+    user-pool-id: ${AWS_COGNITO_USER_POOL_ID:us-east-1_XXXXXXXXX}
+    client-id: ${AWS_COGNITO_CLIENT_ID:xxxxxxxxxxxxxxxxxxxxxxxxxx}
+    client-secret: ${AWS_COGNITO_CLIENT_SECRET:}
+  iot:
+    endpoint: ${AWS_IOT_ENDPOINT:xxxxxxxxxx-ats.iot.us-east-1.amazonaws.com}
+    thing-type-name: ${AWS_IOT_THING_TYPE:SmartFarmDevice}
+  
+# MQTT Configuration
+mqtt:
+  broker:
+    url: ${MQTT_BROKER_URL:ssl://xxxxxxxxxx-ats.iot.us-east-1.amazonaws.com:8883}
+    client-id: ${MQTT_CLIENT_ID:smart-farm-backend}
+    username: ${MQTT_USERNAME:}
+    password: ${MQTT_PASSWORD:}
+    keep-alive: 60
+    connection-timeout: 30
+    clean-session: true
+  topics:
+    telemetry-pattern: "farm/+/room/+/device/+/telemetry"
+    status-pattern: "farm/+/room/+/device/+/status"
+    command-pattern: "farm/{farmId}/room/{roomId}/device/{deviceId}/command"
+
+# WebSocket Configuration
+websocket:
+  allowed-origins: ${WEBSOCKET_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:19006}
+  endpoint: /ws
+  topic-prefix: /topic
+  user-destination-prefix: /user
+
+# Application Specific Configuration
+app:
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:19006}
+    allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+    allowed-headers: "*"
+    allow-credentials: true
+  
+  # Internal API Configuration
+  internal:
+    api-token: ${INTERNAL_API_TOKEN:your-secure-internal-token-here}
+  
+  # Pagination Configuration
+  pagination:
+    default-page-size: 20
+    max-page-size: 100
+  
+  # File Upload Configuration
+  upload:
+    max-file-size: 10MB
+    max-request-size: 10MB
+    temp-dir: ${java.io.tmpdir}
+
+# Logging Configuration
+logging:
+  level:
+    com.smartfarm: INFO
+    org.springframework.security: DEBUG
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/smart-farm.log
+    max-size: 100MB
+    max-history: 30
+
+---
+# Development Profile
+spring:
+  config:
+    activate:
+      on-profile: dev
+  
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+logging:
+  level:
+    com.smartfarm: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+
+---
+# Test Profile
+spring:
+  config:
+    activate:
+      on-profile: test
+  
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  
+  flyway:
+    enabled: false
+
+---
+# Production Profile
+spring:
+  config:
+    activate:
+      on-profile: prod
+  
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+
+logging:
+  level:
+    com.smartfarm: INFO
+    org.springframework.security: WARN
+    org.hibernate.SQL: WARN
+    root: WARN
+
+server:
+  error:
+    include-message: never
+    include-binding-errors: never
+    include-stacktrace: never

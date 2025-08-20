@@ -1,0 +1,123 @@
+# Mushroom Farm IoT Simulator Configuration
+
+# AWS IoT Core Configuration
+aws_iot:
+  endpoint: "your-iot-endpoint.iot.region.amazonaws.com"
+  region: "us-east-1"
+  ca_cert_path: "./certs/AmazonRootCA1.pem"
+  cert_path: "./certs/device-certificate.pem.crt"
+  private_key_path: "./certs/device-private.pem.key"
+  client_id_prefix: "mushroom_sim"
+
+# Simulation Configuration
+simulation:
+  # Number of farms to simulate
+  num_farms: 2
+  # Number of rooms per farm
+  rooms_per_farm: 3
+  # Number of devices per room
+  devices_per_room: 4
+  # Telemetry publish interval in seconds
+  telemetry_interval: 30
+  # Add some randomness to intervals (±seconds)
+  interval_jitter: 5
+
+# Farm Configuration Templates
+farm_templates:
+  - name: "Green Valley Farm"
+    location: "California, USA"
+    rooms:
+      - name: "Incubation Room A"
+        mushroom_type: "Shiitake"
+        stage: "incubation"
+      - name: "Fruiting Room B"
+        mushroom_type: "Oyster"
+        stage: "fruiting"
+      - name: "Maintenance Room C"
+        mushroom_type: "Button"
+        stage: "maintenance"
+  - name: "Mountain View Farm"
+    location: "Oregon, USA"
+    rooms:
+      - name: "Block House 1"
+        mushroom_type: "Shiitake"
+        stage: "fruiting"
+      - name: "Block House 2"
+        mushroom_type: "Lion's Mane"
+        stage: "incubation"
+      - name: "Block House 3"
+        mushroom_type: "Reishi"
+        stage: "fruiting"
+
+# Device Types and Sensor Ranges
+device_types:
+  temperature_sensor:
+    category: "temperature"
+    device_type: "sensor"
+    sensors:
+      temperature_c:
+        min: 18.0
+        max: 28.0
+        optimal: 22.0
+        variance: 2.0
+  humidity_sensor:
+    category: "humidity"
+    device_type: "sensor"
+    sensors:
+      humidity_pct:
+        min: 75.0
+        max: 95.0
+        optimal: 85.0
+        variance: 5.0
+  co2_sensor:
+    category: "co2"
+    device_type: "sensor"
+    sensors:
+      co2_ppm:
+        min: 800
+        max: 1500
+        optimal: 1000
+        variance: 100
+  light_sensor:
+    category: "light"
+    device_type: "sensor"
+    sensors:
+      light_lux:
+        min: 0
+        max: 500
+        optimal: 200
+        variance: 50
+  moisture_sensor:
+    category: "substrate_moisture"
+    device_type: "sensor"
+    sensors:
+      substrate_moisture:
+        min: 60.0
+        max: 80.0
+        optimal: 70.0
+        variance: 5.0
+  multi_sensor:
+    category: "environmental"
+    device_type: "hybrid"
+    sensors:
+      temperature_c:
+        min: 18.0
+        max: 28.0
+        optimal: 22.0
+        variance: 2.0
+      humidity_pct:
+        min: 75.0
+        max: 95.0
+        optimal: 85.0
+        variance: 5.0
+      battery_v:
+        min: 3.0
+        max: 4.2
+        optimal: 3.7
+        variance: 0.3
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "simulator.log"

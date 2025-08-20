@@ -1,0 +1,31 @@
+# AWS IoT SDK for Python
+AWSIoTPythonSDK==1.5.4
+
+# Configuration and data handling
+PyYAML==6.0.1
+requests==2.31.0
+
+# JSON handling and utilities
+jsonschema==4.19.2
+
+# Logging and monitoring
+coloredlogs==15.0.1
+
+# Date and time utilities
+python-dateutil==2.8.2
+
+# Cryptography for secure connections
+cryptography==41.0.7
+
+# Environment variable management
+python-dotenv==1.0.0
+
+# Data generation and randomization
+Faker==19.12.0
+numpy==1.24.3
+
+# Threading and async support
+threading-timer==0.1.0
+
+# UUID generation
+uuid==1.30

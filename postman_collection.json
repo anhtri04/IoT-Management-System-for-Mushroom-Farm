@@ -1,0 +1,769 @@
+{
+  "info": {
+    "name": "IoT Smart Farm System API",
+    "description": "Complete CRUD operations for the Mushroom Farm IoT system",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000",
+      "type": "string"
+    },
+    {
+      "key": "farm_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "room_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "device_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "user_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "auth_token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"TestPassword123!\",\n  \"full_name\": \"Test User\",\n  \"role\": \"admin\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"TestPassword123!\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    const response = pm.response.json();",
+                  "    pm.collectionVariables.set('auth_token', response.access_token);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Farms CRUD",
+      "item": [
+        {
+          "name": "Create Farm",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test Mushroom Farm\",\n  \"location\": \"Test Location, City\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/farms",
+              "host": ["{{base_url}}"],
+              "path": ["api", "farms"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {",
+                  "    const response = pm.response.json();",
+                  "    pm.collectionVariables.set('farm_id', response.farm.farm_id);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All Farms",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/farms",
+              "host": ["{{base_url}}"],
+              "path": ["api", "farms"]
+            }
+          }
+        },
+        {
+          "name": "Get Farm by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/farms/{{farm_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "farms", "{{farm_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Farm",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Mushroom Farm\",\n  \"location\": \"Updated Location, New City\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/farms/{{farm_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "farms", "{{farm_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Farm",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/farms/{{farm_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "farms", "{{farm_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rooms CRUD",
+      "item": [
+        {
+          "name": "Create Room",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Growing Room 1\",\n  \"description\": \"Main growing chamber for oyster mushrooms\",\n  \"mushroom_type\": \"Oyster\",\n  \"stage\": \"fruiting\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/farms/{{farm_id}}/rooms",
+              "host": ["{{base_url}}"],
+              "path": ["api", "farms", "{{farm_id}}", "rooms"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {",
+                  "    const response = pm.response.json();",
+                  "    pm.collectionVariables.set('room_id', response.room.room_id);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Rooms in Farm",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/farms/{{farm_id}}/rooms",
+              "host": ["{{base_url}}"],
+              "path": ["api", "farms", "{{farm_id}}", "rooms"]
+            }
+          }
+        },
+        {
+          "name": "Get Room by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/rooms/{{room_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "rooms", "{{room_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Room",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Growing Room 1\",\n  \"description\": \"Updated main growing chamber\",\n  \"mushroom_type\": \"Shiitake\",\n  \"stage\": \"incubation\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/rooms/{{room_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "rooms", "{{room_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Assign User to Room",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{user_id}}\",\n  \"role\": \"operator\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/rooms/{{room_id}}/assign",
+              "host": ["{{base_url}}"],
+              "path": ["api", "rooms", "{{room_id}}", "assign"]
+            }
+          }
+        },
+        {
+          "name": "Delete Room",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/rooms/{{room_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "rooms", "{{room_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Devices CRUD",
+      "item": [
+        {
+          "name": "Create Device",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"room_id\": \"{{room_id}}\",\n  \"name\": \"Temperature Sensor 1\",\n  \"device_type\": \"sensor\",\n  \"category\": \"temperature\",\n  \"mqtt_topic\": \"farm/{{farm_id}}/room/{{room_id}}/device/temp_sensor_1\",\n  \"firmware_version\": \"1.0.0\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/devices",
+              "host": ["{{base_url}}"],
+              "path": ["api", "devices"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {",
+                  "    const response = pm.response.json();",
+                  "    pm.collectionVariables.set('device_id', response.device.device_id);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Devices in Room",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/rooms/{{room_id}}/devices",
+              "host": ["{{base_url}}"],
+              "path": ["api", "rooms", "{{room_id}}", "devices"]
+            }
+          }
+        },
+        {
+          "name": "Get Device by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/devices/{{device_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "devices", "{{device_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Device",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Temperature Sensor 1\",\n  \"status\": \"online\",\n  \"firmware_version\": \"1.1.0\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/devices/{{device_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "devices", "{{device_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Device",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/devices/{{device_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "devices", "{{device_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Telemetry & Commands",
+      "item": [
+        {
+          "name": "Get Room Telemetry",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/rooms/{{room_id}}/telemetry?from=2024-01-01T00:00:00Z&to=2024-12-31T23:59:59Z&agg=hour",
+              "host": ["{{base_url}}"],
+              "path": ["api", "rooms", "{{room_id}}", "telemetry"],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "2024-01-01T00:00:00Z"
+                },
+                {
+                  "key": "to",
+                  "value": "2024-12-31T23:59:59Z"
+                },
+                {
+                  "key": "agg",
+                  "value": "hour"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Latest Device Readings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/devices/{{device_id}}/latest",
+              "host": ["{{base_url}}"],
+              "path": ["api", "devices", "{{device_id}}", "latest"]
+            }
+          }
+        },
+        {
+          "name": "Send Device Command",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"command\": \"turn_on\",\n  \"params\": {\n    \"duration_s\": 300,\n    \"intensity\": 75\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/devices/{{device_id}}/commands",
+              "host": ["{{base_url}}"],
+              "path": ["api", "devices", "{{device_id}}", "commands"]
+            }
+          }
+        },
+        {
+          "name": "Get Room Commands",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/rooms/{{room_id}}/commands",
+              "host": ["{{base_url}}"],
+              "path": ["api", "rooms", "{{room_id}}", "commands"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Automation Rules",
+      "item": [
+        {
+          "name": "Create Automation Rule",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"High Temperature Alert\",\n  \"parameter\": \"temperature\",\n  \"comparator\": \">\",\n  \"threshold\": 25.0,\n  \"action_device\": \"{{device_id}}\",\n  \"action_command\": \"{\\\"cmd\\\":\\\"turn_on\\\",\\\"duration_s\\\":600}\",\n  \"enabled\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/rooms/{{room_id}}/rules",
+              "host": ["{{base_url}}"],
+              "path": ["api", "rooms", "{{room_id}}", "rules"]
+            }
+          }
+        },
+        {
+          "name": "Get Automation Rules",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/rooms/{{room_id}}/rules",
+              "host": ["{{base_url}}"],
+              "path": ["api", "rooms", "{{room_id}}", "rules"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "AI Recommendations",
+      "item": [
+        {
+          "name": "Trigger AI Recommendation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/rooms/{{room_id}}/recommend",
+              "host": ["{{base_url}}"],
+              "path": ["api", "rooms", "{{room_id}}", "recommend"]
+            }
+          }
+        },
+        {
+          "name": "Get Recommendations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/rooms/{{room_id}}/recommendations",
+              "host": ["{{base_url}}"],
+              "path": ["api", "rooms", "{{room_id}}", "recommendations"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Notifications",
+      "item": [
+        {
+          "name": "Get Notifications",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/notifications",
+              "host": ["{{base_url}}"],
+              "path": ["api", "notifications"]
+            }
+          }
+        },
+        {
+          "name": "Acknowledge Notification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/notifications/{notification_id}/ack",
+              "host": ["{{base_url}}"],
+              "path": ["api", "notifications", "{notification_id}", "ack"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "item": [
+        {
+          "name": "Get Farm Analytics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/analytics/{{farm_id}}?from=2024-01-01&to=2024-12-31&metric=temperature,humidity",
+              "host": ["{{base_url}}"],
+              "path": ["api", "analytics", "{{farm_id}}"],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "2024-01-01"
+                },
+                {
+                  "key": "to",
+                  "value": "2024-12-31"
+                },
+                {
+                  "key": "metric",
+                  "value": "temperature,humidity"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Internal Endpoints (Testing)",
+      "item": [
+        {
+          "name": "Internal Ingest Telemetry",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Internal-Token",
+                "value": "internal-token-change-in-production"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"device_id\": \"{{device_id}}\",\n  \"room_id\": \"{{room_id}}\",\n  \"farm_id\": \"{{farm_id}}\",\n  \"temperature_c\": 22.5,\n  \"humidity_pct\": 65.0,\n  \"co2_ppm\": 400,\n  \"light_lux\": 1200,\n  \"substrate_moisture\": 75.0,\n  \"battery_v\": 3.7,\n  \"recorded_at\": \"2024-08-15T10:30:00Z\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/internal/ingest",
+              "host": ["{{base_url}}"],
+              "path": ["internal", "ingest"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
